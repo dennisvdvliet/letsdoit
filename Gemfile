@@ -32,6 +32,11 @@ gem 'haml', '~> 4.0.5'
 
 
 gem "tweetstream"
+gem "devise"
+
+gem "omniauth-redbooth"
+gem "faraday"
+gem "faraday_middleware"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
