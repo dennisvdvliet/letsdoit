@@ -2,6 +2,7 @@ class Listener
   def call
     unless File.split($0).last == 'rake'
       require 'tweetstream'
+      puts "Starting twitter"
       TweetStream.configure do |config|
         config.consumer_key       = ENV["TWITTER_CONSUMER_KEY"]
         config.consumer_secret    = ENV["TWITTER_CONSUMER_SECRET"]
@@ -16,9 +17,11 @@ class Listener
       @client = TweetStream::Client.new
       Thread.new do
         @client.track("justin") do |status|
-          # save 
-          puts "#{Time.now} - #{status.to_json}"
+          # save tweet
+          # process linked accounts
+          puts "#{Time.now} - #{status.text}"
         end
+        # close db connection
       end
     end
   end
