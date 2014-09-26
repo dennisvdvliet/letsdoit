@@ -1,11 +1,11 @@
 class TaskFromTweet
   def self.call(user = nil, tweet = nil)
-    # create task
-    bogus
+    task = {
+      project_id: user.project_id,
+      tasklist_id: user.tasklist_id,
+      name: tweet.text,
+      description: "Created from Twitter on #{Date.today} \nURL: #{tweet.uri}"
+    }
+    user.api.create_task(task)
   end
-
-  private
-    def self.api_provider(user)
-
-    end
 end
