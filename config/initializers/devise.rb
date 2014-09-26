@@ -234,6 +234,9 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :redbooth, ENV['REDBOOTH_APP_ID'], ENV['REDBOOTH_APP_SECRET'], :scope => 'all'
+
+  config.omniauth :trello, ENV['TRELLO_APP_ID'], ENV['TRELLO_APP_SECRET'], app_name: "APP_NAME", scope: 'read,write,account', expiration: '30days'
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
