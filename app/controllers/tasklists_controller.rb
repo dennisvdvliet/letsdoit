@@ -1,6 +1,9 @@
 class TasklistsController < ApplicationController
 
   def index
-    render :json => api.get("me")
+    respond_to do |format|
+      format.json { render :json => current_user.projects }
+      format.html
+    end
   end
 end
