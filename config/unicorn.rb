@@ -1,11 +1,11 @@
-worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
+worker_processes Integer(ENV["WEB_CONCURRENCY"] || 1)
 timeout 15
 preload_app true
 
 # Dirty hack to get the stream listener only running once
-require "#{Dir.pwd}/lib/listener.rb"
-CLIENT = Listener.new
-CLIENT.call
+# require "#{Dir.pwd}/lib/listener.rb"
+# CLIENT = Listener.new
+# CLIENT.call
 
 before_fork do |server, worker|
   Signal.trap 'TERM' do

@@ -16,6 +16,8 @@ class Listener
       end
       @client = TweetStream::Client.new
       Thread.new do
+        puts "Starting thread to listen"
+
         @client.track("justin") do |status|
           # save tweet
           # process linked accounts
