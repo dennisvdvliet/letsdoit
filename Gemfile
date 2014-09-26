@@ -29,17 +29,18 @@ gem 'spring',        group: :development
 gem 'dotenv-rails', :groups => [:development, :test]
 
 gem 'haml', '~> 4.0.5'
-
+gem "haml-rails"
 
 gem "tweetstream"
 gem "devise"
 
 gem "omniauth-redbooth"
+gem "omniauth-trello"
 gem "faraday"
 gem "faraday_middleware"
 
 # we want it to look pretty
-gem "foundation-rails"
+gem "twitter-bootstrap-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
