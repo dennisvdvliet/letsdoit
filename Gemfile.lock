@@ -73,6 +73,9 @@ GEM
       multipart-post (>= 1.2, < 3)
     faraday_middleware (0.9.1)
       faraday (>= 0.7.4, < 0.10)
+    foundation-rails (5.2.1.0)
+      railties (>= 3.1.0)
+      sass (>= 3.2.0)
     haml (4.0.5)
       tilt
     hashie (3.3.1)
@@ -205,6 +208,7 @@ DEPENDENCIES
   dotenv-rails
   faraday
   faraday_middleware
+  foundation-rails
   haml (~> 4.0.5)
   jbuilder (~> 2.0)
   jquery-rails

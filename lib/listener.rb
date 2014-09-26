@@ -15,16 +15,14 @@ class Listener
         @client.stop
       end
       @client = TweetStream::Client.new
-      Thread.new do
-        puts "Starting thread to listen"
-
-        @client.track("justin") do |status|
-          # save tweet
-          # process linked accounts
-          puts "#{Time.now} - #{status.text}"
-        end
-        # close db connection
-      end
+      # Thread.new do
+      #   @client.track("justin") do |status|
+      #     # save tweet
+      #     # process linked accounts
+      #     puts "#{Time.now} - #{status.text}"
+      #   end
+      #   # close db connection
+      # end
     end
   end
 end

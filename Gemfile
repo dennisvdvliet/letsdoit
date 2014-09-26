@@ -37,6 +37,9 @@ gem "devise"
 gem "omniauth-redbooth"
 gem "faraday"
 gem "faraday_middleware"
+
+# we want it to look pretty
+gem "foundation-rails"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

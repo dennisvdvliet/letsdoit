@@ -12,13 +12,22 @@ class User < ActiveRecord::Base
     user
   end
 
-  def task_from_tweet(tweet)
-    TaskFromTweet.call(self, tweet)
+  def tasks
+    api.tasks
   end
 
+  def tasklists
+    api.tasks
+  end
 
-  # def api_provider
-  #       case user.provider
-  #     when 'redbooth'
-  #       Redbooth::API.new(:)
+  def projects
+    api.tasks
+  end
+
+  def me
+    api.me
+  end
+  def api
+    @api ||= API::User.new(self)
+  end
 end
