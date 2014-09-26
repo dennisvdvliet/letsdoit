@@ -1,11 +1,11 @@
-module Redbooth
+module Trello
   class User < API::User
     def initialize(user)
-      @client = Redbooth::Client.new({:token => user.authentication_token})
+      @client = Trello::Client.new({:token => user.authentication_token})
     end
 
     def me
-      @client.get("me")
+      @client.get("members/me")
     end
 
     def tasklists
@@ -21,14 +21,9 @@ module Redbooth
     end
 
     def projects
-      @client.get("projects").collect do |task|
-        Redbooth::Project.new(task)
+      @client.get("members/me/boards").collect do |task|
+        Trello::Project.new(task)
       end
-    end
-
-    def create_task(data)
-      puts Redbooth::Task.create(data)
-      @client.post("tasks", Redbooth::Task.create(data))
     end
   end
 end
