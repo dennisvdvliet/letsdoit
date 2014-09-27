@@ -1,25 +1,14 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
+  skip_before_filter :active_user?
   def redbooth
     @user = User.from_omniauth(request.env["omniauth.auth"])
-
-    if @user.persisted?
-      sign_in @user
-      redirect_to tasklists_path
-    else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      render :text => "created new user"
-    end
+    sign_in @user
+    redirect_to tasklists_path
   end
 
   def trello
     @user = User.from_omniauth(request.env["omniauth.auth"])
-
-    if @user.persisted?
-      sign_in @user
-      redirect_to tasklists_path
-    else
-      session["devise.facebook_data"] = request.env["omniauth.auth"]
-      render :text => "created new user"
-    end
+    sign_in @user
+    redirect_to tasklists_path
   end
 end
