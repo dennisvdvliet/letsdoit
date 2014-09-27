@@ -41,6 +41,8 @@ gem "faraday_middleware"
 
 # we want it to look pretty
 gem "twitter-bootstrap-rails"
+
+# we want it to be responsive
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

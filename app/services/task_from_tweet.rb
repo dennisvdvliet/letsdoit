@@ -6,6 +6,7 @@ class TaskFromTweet
       name: tweet.text,
       description: "Created from Twitter on #{Date.today} \nURL: #{tweet.uri}"
     }
+    WebsocketRails[:tweets].trigger 'new'
     user.api.create_task(task)
   end
 end

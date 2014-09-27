@@ -1,2 +1,3 @@
-CLIENT = Listener.new
-CLIENT.call
+unless defined?(::Rails::Console)
+  CLIENT = Listener.call
+end

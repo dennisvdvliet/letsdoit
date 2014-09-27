@@ -1,8 +1,6 @@
 class Listener
   def self.call
     unless File.split($0).last == 'rake'
-      require 'tweetstream'
-      puts "Starting twitter"
       TweetStream.configure do |config|
         config.consumer_key       = ENV["TWITTER_CONSUMER_KEY"]
         config.consumer_secret    = ENV["TWITTER_CONSUMER_SECRET"]
@@ -18,7 +16,7 @@ class Listener
         end
 
         @client.on_enhance_your_calm do |message|
-          Rails.logger.error "Twitter: Keep calm and continue waitinga"
+          Rails.logger.error "Twitter: Keep calm and continue waiting"
         end
 
         @client.on_error do |message|
