@@ -1,0 +1,13 @@
+.row
+  .col-md-6.col-md-offset-3
+    %h1 Welcome
+
+    %p So you are working on a big project and have a number of TODO lists? Keeping them filled can be a daunting task. And having a loaded TODO list is really important these days.
+
+    %p "Letsdoit" is here to help. We automatically fill your Redbooth or Trello (more sevice coming) TODO list based on tweets with the hashtag #letsdoit.
+
+    %p We call it crowdsource-todo-list-filling and we believe this is going to be big!
+
+    = link_to("Use Redbooth", user_omniauth_authorize_path(:redbooth), class: "btn btn-default btn-lg btn-block")
+
+    = link_to("Use Trello", "users/auth/trello", class: "btn btn-default btn-lg btn-block")
