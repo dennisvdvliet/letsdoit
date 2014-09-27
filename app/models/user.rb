@@ -10,7 +10,11 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
-    user.update_attributes(authentication_token: auth.credentials.token, token_expires_at: auth.credentials.expires_at ? Time.at(auth.credentials.expires_at) : Time.now + 2.hours)
+    user.update_attributes(
+      project_id: nil,
+      tasklist_id: nil,
+      authentication_token: auth.credentials.token,
+      token_expires_at: auth.credentials.expires_at ? Time.at(auth.credentials.expires_at) : Time.now + 2.hours)
     user
   end
 
