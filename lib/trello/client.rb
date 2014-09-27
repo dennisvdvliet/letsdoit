@@ -17,6 +17,10 @@ module Trello
       @conn.get(path, data.merge(auth_params)).body
     end
 
+    def post(path, data = {})
+      @conn.post(path, data.merge(auth_params)).body
+    end
+
     private
       def auth_params
         {:key => ENV["TRELLO_APP_ID"], :token => @options[:token]}

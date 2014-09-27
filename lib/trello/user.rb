@@ -15,16 +15,14 @@ module Trello
       end
     end
 
-    def tasks
-      @client.get("tasks").collect do |task|
-        Redbooth::Task.new(task)
-      end
-    end
-
     def projects
       @client.get("members/me/boards").collect do |task|
         Trello::Project.new(task)
       end
+    end
+
+    def create_task(data)
+      @client.post("cards", Trello::Task.create(data))
     end
   end
 end
