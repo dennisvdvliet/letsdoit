@@ -3,12 +3,12 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def redbooth
     @user = User.from_omniauth(request.env["omniauth.auth"])
     sign_in @user
-    redirect_to tasklists_path
+    redirect_to projects_path
   end
 
   def trello
     @user = User.from_omniauth(request.env["omniauth.auth"])
     sign_in @user
-    redirect_to tasklists_path
+    redirect_to projects_path
   end
 end

@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
 
   def active_user?
     if current_user && current_user.active? == false
-      redirect_to user_omniauth_authorize_path(current_user.provider)
+      # ugly hack for Trello
+      case current_user.provider
+      when 'trello'
+        redirect_to "/users/auth/trello" and return
+      else
+        redirect_to user_omniauth_authorize_path(current_user.provider) and return
+      end
     end
   end
 end
