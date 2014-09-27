@@ -2,6 +2,7 @@ module Trello
   class User < API::User
     def initialize(user)
       @client = Trello::Client.new({:token => user.authentication_token})
+      @user = user
     end
 
     def me
@@ -9,8 +10,8 @@ module Trello
     end
 
     def tasklists
-      @client.get("task_lists").collect do |tasklist|
-        Redbooth::Tasklist.new(tasklist)
+      @client.get("boards/#{@user.project_id}/lists").collect do |tasklist|
+        Trello::Tasklist.new(tasklist)
       end
     end
 
