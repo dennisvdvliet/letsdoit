@@ -27,7 +27,6 @@ module Redbooth
     end
 
     def create_task(data)
-      puts Redbooth::Task.create(data)
       @client.post("tasks", Redbooth::Task.create(data))
     end
   end

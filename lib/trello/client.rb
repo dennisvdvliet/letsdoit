@@ -5,6 +5,7 @@ module Trello
 
       @conn = Faraday.new(url: @options[:url]) do |conn|
         conn.adapter :net_http
+        conn.request :url_encoded
 
         conn.response :logger if Rails.env.development?
         conn.response :json, :content_type => /\bjson$/
@@ -18,7 +19,10 @@ module Trello
     end
 
     def post(path, data = {})
-      @conn.post(path, data.merge(auth_params)).body
+      @conn.post do |req|
+        req.url path
+        req.body = data.merge(auth_params).to_query
+      end.body
     end
 
     private
