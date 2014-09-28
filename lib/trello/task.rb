@@ -5,7 +5,8 @@ module Trello
         "idList" => data[:tasklist_id],
         "name" => data[:name],
         "desc" => data[:description],
-        "due" => nil
+        "due" => nil,
+        "pos" => "top"
       }
     end
   end
