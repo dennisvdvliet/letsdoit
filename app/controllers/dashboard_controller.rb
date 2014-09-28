@@ -2,7 +2,7 @@ class DashboardController < ApplicationController
 
   def show
     respond_to do |format|
-      format.json { render :json => current_user.projects }
+      format.json { render :json => ENV }
       format.html
     end
   end
