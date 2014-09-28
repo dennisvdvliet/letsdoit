@@ -1,3 +1,3 @@
 unless defined?(::Rails::Console)
-  #CLIENT = Listener.call
+  CLIENT = Listener.call
 end
