@@ -31,7 +31,7 @@ class Listener
         end
 
         @client.track("#dtv") do |status, client|
-          Rails.logger.error "Twitter: We received a new tweet"
+          Rails.logger.error "Twitter: We received a new tweet #{status.text}"
           User.active.each do |user|
             TaskFromTweet.call(user, status)
           end
