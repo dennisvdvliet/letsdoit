@@ -20,10 +20,6 @@ module API
       @user.tasklists
     end
 
-    def tasks
-      @user.tasks
-    end
-
     def projects
       @user.projects
     end

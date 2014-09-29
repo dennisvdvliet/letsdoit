@@ -18,10 +18,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  def tasks
-    api.tasks
-  end
-
   def tasklists
     api.tasklists
   end
@@ -38,7 +34,8 @@ class User < ActiveRecord::Base
     token_expires_at != nil && token_expires_at > Time.now
   end
 
-  def api
-    @api ||= API::User.new(self)
-  end
+  private
+    def api
+      @api ||= API::User.new(self)
+    end
 end

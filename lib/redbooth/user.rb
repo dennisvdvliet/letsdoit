@@ -14,12 +14,6 @@ module Redbooth
       end
     end
 
-    def tasks
-      @client.get("tasks").collect do |task|
-        Redbooth::Task.new(task)
-      end
-    end
-
     def projects
       @client.get("projects").collect do |task|
         Redbooth::Project.new(task)
