@@ -28,6 +28,11 @@ gem 'spring',        group: :development
 
 gem 'rails_12factor'
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'webmock', :groups => [:test]
+group :development, :test do
+  gem 'rspec-rails', '~> 3.0.0'
+end
+gem "spring-commands-rspec", group: :development
 
 gem 'haml', '~> 4.0.5'
 gem "haml-rails"
