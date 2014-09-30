@@ -39,3 +39,4 @@ The following items are tested:
 * Add websockets to keep current user up-to-date about the tasks being created
 * Ability to change the monitored hashtag (using EM.interval)
 * Do it in Sinatra (just for the fun of it)
+* Add response bodies to mocked requests

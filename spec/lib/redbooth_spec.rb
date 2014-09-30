@@ -8,7 +8,7 @@ describe "Redbooth" do
     it "makes a GET request to /projects" do
       stub_request(:get, "https://redbooth.com/api/3/projects").
          with(:headers => {'Authorization'=>'Bearer secret'})
-      Redbooth::User.new(user).projects
+      expect{Redbooth::User.new(user).projects}.to raise_error
     end
   end
 
@@ -16,7 +16,7 @@ describe "Redbooth" do
     it "makes a GET request /task_lists" do
       stub_request(:get, "https://redbooth.com/api/3/task_lists").
          with(:headers => {'Authorization'=>'Bearer secret'})
-      Redbooth::User.new(user).tasklists
+      expect{Redbooth::User.new(user).tasklists}.to raise_error
     end
   end
 
@@ -29,15 +29,15 @@ describe "Redbooth" do
   end
 
   describe "create Redbooth task" do
-    it "makes a post request to /cards" do
+    it "makes a post request to /tasks" do
       data = {
         :project_id => 666,
         :tasklist_id => 666,
         :name => "Test todo",
         :description => "Desc"
       }
-      stub_request(:post, "https://redbooth.com/api/3/").
-         with(:body => '{"project_id":666,"task_list_id":666,"name":"Test todo","description":"Desc"}')
+      stub_request(:post, "https://redbooth.com/api/3/tasks").
+         with(:body => "{\"project_id\":666,\"task_list_id\":666,\"name\":\"Test todo\",\"description\":\"Desc\"}")
       Redbooth::User.new(user).create_task(data)
     end
   end
