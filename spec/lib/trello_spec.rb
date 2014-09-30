@@ -44,4 +44,18 @@ describe "Trello" do
       Trello::User.new(user).create_task(data)
     end
   end
+
+  describe "Trello::Task.create" do
+    it "returns a Trello hash to create a task" do
+      data = {
+          :project_id => 666,
+          :tasklist_id => 666,
+          :name => "Test todo",
+          :description => "Desc"
+      }
+      response = Trello::Task.create(data)
+      expect(response.class).to eq(Hash)
+      expect(response.keys).to eq(["idList", "name", "desc", "due", "pos"])
+    end
+  end
 end

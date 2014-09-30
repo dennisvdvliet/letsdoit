@@ -41,4 +41,18 @@ describe "Redbooth" do
       Redbooth::User.new(user).create_task(data)
     end
   end
+
+  describe "Redbooth::Task.create" do
+    it "returns a Redbooth hash to create a task" do
+      data = {
+          :project_id => 666,
+          :tasklist_id => 666,
+          :name => "Test todo",
+          :description => "Desc"
+      }
+      response = Redbooth::Task.create(data)
+      expect(response.class).to eq(String)
+      expect{JSON.parse(response)}.to_not raise_error
+    end
+  end
 end

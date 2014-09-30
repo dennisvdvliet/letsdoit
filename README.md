@@ -27,3 +27,15 @@ The current version is running using the Digital Ocean Dokku image. Please see: 
 ##Testing
 Since we are using the Devise and Omniauth gems and both these gem are well tested I took the liberty of not testing the oauth interactions. Also the controllers used are so simple I felt testing would defeat the purpose.
 
+The following items are tested:
+
+* Outgoing HTTP calls to Trello and Rebooth
+* Data structures for Trello and Redbooth task
+* TaskToTweet services
+
+##Todo
+
+* Add other task management tools (Basecamp, Pivotal, etc)
+* Add websockets to keep current user up-to-date about the tasks being created
+* Ability to change the monitored hashtag (using EM.interval)
+* Do it in Sinatra (just for the fun of it)
