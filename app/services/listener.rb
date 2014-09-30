@@ -29,7 +29,7 @@ class Listener
       Rails.logger.error "Twitter: Not authorized!"
     end
 
-    @client.track("#dtv") do |status, client|
+    @client.track(ENV["LISTEN_TO"]) do |status, client|
       Rails.logger.error "Twitter: We received a new tweet #{status.text}"
       User.active.each do |user|
         TaskFromTweet.call(user, status)

@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_filter :authenticate_user!
   before_filter :active_user?
+  before_filter :set_hashtag
+
+  def set_hashtag
+    @hashtag = ENV["LISTEN_TO"] || "none"
+  end
 
   def active_user?
     if current_user && current_user.active? == false
