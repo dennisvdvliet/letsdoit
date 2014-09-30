@@ -34,8 +34,7 @@ class User < ActiveRecord::Base
     token_expires_at != nil && token_expires_at > Time.now
   end
 
-  private
-    def api
-      @api ||= API::User.new(self)
-    end
+  def api
+    @api ||= API::User.new(self)
+  end
 end
